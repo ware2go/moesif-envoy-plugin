@@ -144,7 +144,8 @@ function _M.log_request(handler)
         local moesif_request = {}
 
         -- Request Time
-        moesif_request["time"] = core.helpers.get_current_time_in_ms()
+        moesif_request["time"] = handler:timestamp()
+        print(handler:timestamp())
 
         -- Request URI
         moesif_request["uri"] = build_url(handler)
@@ -250,7 +251,8 @@ function _M.log_response(handler)
                 local moesif_response = {}
 
                 -- Response Time
-                moesif_response["time"] = core.helpers.get_current_time_in_ms()
+                moesif_response["time"] = handler:timestamp()
+                print(handler:timestamp())
 
                 -- Response status
                 moesif_response["status"] = tonumber(handler:headers():get(":status"))
