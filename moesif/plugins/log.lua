@@ -174,15 +174,15 @@ function _M.log_request(handler)
         moesif_request["user_agent_string"] = handler:headers():get("user-agent")
 
         -- Ip Address
-        local direct_remote_address, err = pcall(handler:streamInfo():downstreamDirectRemoteAddress())
-        if err == nil then 
-            moesif_request["ip_address"] = direct_remote_address
-        else
-            local local_address, errL = pcall(handler:streamInfo():downstreamLocalAddress())
-            if errL == nil then 
-                moesif_request["ip_address"] = local_address
-            end
-        end
+        -- local direct_remote_address, err = pcall(handler:streamInfo():downstreamDirectRemoteAddress())
+        -- if err == nil then 
+        --     moesif_request["ip_address"] = direct_remote_address
+        -- else
+        --     local local_address, errL = pcall(handler:streamInfo():downstreamLocalAddress())
+        --     if errL == nil then 
+        --         moesif_request["ip_address"] = local_address
+        --     end
+        -- end
 
         -- User Id
         if ctx["user_id_header"] ~= nil then 
