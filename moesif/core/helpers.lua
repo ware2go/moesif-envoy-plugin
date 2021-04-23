@@ -43,7 +43,8 @@ function _M.get_current_time_in_ms()
     print("clock: ", os.clock())
 
     local current_time_since_epoch = os.time(os.date("!*t"))
-    return os.date("!%Y-%m-%dT%H:%M:%S.", current_time_since_epoch) .. string.match(tostring(os.clock() * 1000), "%d%.(%d+)")
+    -- return os.date("!%Y-%m-%dT%H:%M:%S.", current_time_since_epoch) .. string.match(tostring(os.clock() * 1000), "%d%.(%d+)")
+    return os.date("!%Y-%m-%dT%H:%M:%S.", current_time_since_epoch) .. '000'
 end
 
 -- Function fetch raw body
